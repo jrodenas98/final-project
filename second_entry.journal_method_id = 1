@@ -1,0 +1,9 @@
+=> [32m#<UserEntry:0x00000006323e48[0m
+ id: [1;34m2[0m,
+ user_id: [1;34m1[0m,
+ prompt_id: [1;34m2[0m,
+ response: [31m[1;31m"[0m[31mHere is my second entry[1;31m"[0m[31m[0m,
+ headline: [31m[1;31m"[0m[31mMy second entry[1;31m"[0m[31m[0m,
+ created_at: [1;34;4mFri[0m, [1;34m07[0m [1;34;4mJun[0m [1;34m2019[0m [1;34m01[0m:[1;34m59[0m:[1;34m24[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ updated_at: [1;34;4mFri[0m, [1;34m07[0m [1;34;4mJun[0m [1;34m2019[0m [1;34m01[0m:[1;34m59[0m:[1;34m24[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ journal_method_id: [1;36mnil[0m[32m>[0m

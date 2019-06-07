@@ -1,0 +1,35 @@
+<h1>
+  Add a new quote
+</h1>
+
+<hr>
+
+<%= render("quote_templates/validation_failures.html.erb") %>
+
+<form action="/insert_quote_record" method="post">
+  <div>
+    <label for="body">
+      Body
+    </label>
+
+    <input type="text" id="body" name="body" value="<%= @quote.body %>">
+  </div>
+
+  <div>
+    <label for="author">
+      Author
+    </label>
+
+    <input type="text" id="author" name="author" value="<%= @quote.author %>">
+  </div>
+
+  <button>
+    Create quote
+  </button>
+</form>
+
+<hr>
+
+<a href="/quotes">
+  Go back
+</a>

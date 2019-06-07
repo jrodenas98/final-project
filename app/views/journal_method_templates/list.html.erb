@@ -1,0 +1,66 @@
+<h1>
+  Journal method list
+</h1>
+
+<a href="/new_journal_method_form">
+  Add a new journal method
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Name
+    </th>
+
+    <th>
+      Description
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @journal_methods.each do |journal_method| %>
+  <tr>
+    <td>
+      <%= journal_method.id %>
+    </td>
+
+    <td>
+      <%= journal_method.name %>
+    </td>
+
+    <td>
+      <%= journal_method.description %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(journal_method.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(journal_method.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/journal_methods/<%= journal_method.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

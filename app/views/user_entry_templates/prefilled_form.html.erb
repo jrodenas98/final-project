@@ -1,0 +1,73 @@
+<div class="container">
+<div class="row">
+<h1>
+  Today's <%= @journal_method.name %> Journal Entry: 
+</h1>
+</div>
+
+<div class="row"><h2>Day <%= @prompt.day %></h2></div>
+
+<hr>
+<div class="row">
+<%= render("user_entry_templates/validation_failures.html.erb") %>
+
+<form action="/update_user_entry_record/<%= @user_entry.id %>" method="post">
+ <dl>
+    <dt>
+      <p class="text-secondary">Journal</p>
+    </dt>
+    <dd>
+      <%= @journal_method.name %>
+    </dd>
+    
+    <dt>
+      <p class="text-secondary">Prompt</p>
+    </dt>
+    <dd>
+      <%= @prompt.prompt_text %>
+    </dd>
+  </dl>
+  <div>
+    <div>
+    <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
+  </div>
+
+  <div>
+    <input type="hidden" id="prompt_id" name="prompt_id" value="<%= @user_entry.prompt_id %>">
+  </div>
+    
+    <div>
+    <input type="hidden" id="journal_method_id" name="journal_method_id" value="<%= @journal_method.id %>">
+  </div>
+  
+   <div>
+    <label for="headline">
+      <p class="text-secondary"><b>Headline</b></p>
+    </label>
+
+    <input type="text" id="headline" name="headline" class="form-control" rows="3" value= "<%= @user_entry.headline %>">
+  </div>
+  
+  <div>
+    <label for="response">
+     <p class="text-secondary"><b> Response</b></p>
+    </label>
+
+    <textarea id="response" class="form-control" rows="5" name="response"><%= @user_entry.response %></textarea>
+  </div>
+
+
+  <button class="btn btn-primary btn-lg btn-block">
+    Save
+  </button>
+</form>
+</div>
+</div>
+
+<hr>
+<div class= "row">
+<a href="/user_entries">
+  Go back
+</a>
+</div>
+</div>

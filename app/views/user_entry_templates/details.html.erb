@@ -1,0 +1,75 @@
+<div class="container">
+   
+  <hr>
+  <div class="row">
+
+        <div class="col-12"><h1>
+          <%= @journal_method.name %> Journal Day #<%= @prompt.day %> details
+        </h1></div>
+    </div>
+
+
+
+  <hr>
+
+<dl>
+  
+    <dt><p class="text-secondary">Journal</p></dt>
+ 
+    <dd><p><%= @journal_method.name %></p></dd>
+ 
+  <dt>
+    <p class="text-secondary">Prompt</p>
+  </dt>
+  <dd>
+    <%= @prompt.prompt_text %>
+  </dd>
+  
+  <dt>
+    <p class="text-secondary">Headline</p>
+  </dt>
+  <dd>
+    <%= @user_entry.headline %>
+  </dd>
+  
+  <dt>
+    <p class="text-secondary">Response</p>
+  </dt>
+  <dd>
+    <%= @user_entry.response %>
+  </dd>
+
+  
+
+  <dt>
+    <p class="text-secondary">Created at</p>
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@user_entry.created_at) %> ago
+  </dd>
+
+  <dt>
+    <p class="text-secondary">Updated at</p>
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@user_entry.updated_at) %> ago
+  </dd>
+</dl>
+
+<hr>
+<div class="row">
+        <div class="col-md-2 col-lg-3"></div>
+        <div class="col-md-8 col-lg-2"><a href="/user_entries">
+      Go back
+    </a></div>
+        <div class="col-md-2"><a href="/existing_user_entry_form/<%= @user_entry.id %>">
+      Edit entry
+    </a></div>
+        <div class="col-lg-2"><a href="/delete_user_entry/<%= @user_entry.id %>">
+      Delete entry
+    </a></div>
+        <div class="col-lg-3"></div>
+  </div>
+
+</div>
+

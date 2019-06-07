@@ -1,0 +1,66 @@
+<div class="container">
+<div class="row">
+<h1>
+  Today's <%= @journal_method.name %> Journal Entry: 
+</h1>
+
+
+</div>
+<div class = "row"><center><h2>Day <%= @prompt.day %></h2></center></div>
+<hr>
+<div class="row">
+<%= render("user_entry_templates/validation_failures.html.erb") %>
+
+<form action="/insert_user_entry_record" method="post">
+  <div>
+    <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
+  </div>
+
+  <div>
+    <input type="hidden" id="prompt_id" name="prompt_id" value="<%= @prompt_id %>">
+  </div>
+  
+    <div>
+    <input type="hidden" id="journal_method_id" name="journal_method_id" value="<%= @journal_method.id %>">
+  </div>
+  
+  <div>
+    <dl>
+      <dt><p class="text-secondary"><%= @journal_method.name %> Journal</p></dt>
+      <dd><%= @journal_method.description %></dd>
+      
+      <dt><p class="text-secondary">Prompt</p></dt>
+      <dd><%= @prompt.prompt_text %></dd>
+    </dl>
+      
+  </div>
+    <div>
+    <label for="headline" >
+      <p class="text-secondary"><b>Headline</b></p>
+    </label>
+
+    <input type="text" id="headline" class="form-control" placeholder="Write a headline for your entry" name="headline" value="<%= @user_entry.headline %>">
+  </div>
+  <div>
+    <label for="response">
+      <p class="text-secondary"><b>Response</b></p>
+    </label>
+
+    <textarea id="response" class="form-control" rows="5" placeholder="Write your response here." name="response" value="<%= @user_entry.response %>"></textarea>
+  </div>
+
+
+
+  <button class="btn btn-primary btn-lg btn-block">
+    Save
+  </button>
+</form>
+</div>
+<div class= "row">
+<hr>
+
+<a href="/user_entries">
+  Go back
+</a>
+</div>
+</div>
