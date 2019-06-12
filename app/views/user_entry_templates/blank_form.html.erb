@@ -9,6 +9,7 @@
 <div class = "row"><center><h2>Day <%= @prompt.day %></h2></center></div>
 <hr>
 <div class="row">
+<div class="col-md-12"> 
 <%= render("user_entry_templates/validation_failures.html.erb") %>
 
 <form action="/insert_user_entry_record" method="post">
@@ -55,6 +56,7 @@
     Save
   </button>
 </form>
+</div>
 </div>
 <div class= "row">
 <hr>

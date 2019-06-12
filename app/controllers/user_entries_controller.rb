@@ -1,8 +1,12 @@
 class UserEntriesController < ApplicationController
   def list
+    
+    
+    # Get all of the user's entries
     @user_entries = UserEntry.where(:user_id => current_user.id).order(:created_at => :desc)
     
-    latest_Goal_prompt = @user_entries.where(:journal_method_id => "4").order(:created_at => :desc).first
+    
+    
     
     #Find the next TLC Prompt to Show User
     latest_TLC_prompt = @user_entries.where(:journal_method_id => "1").order(:created_at => :desc).first
@@ -73,11 +77,34 @@ class UserEntriesController < ApplicationController
       
     end
     
-      
+    #Find the latest Free Write Prompt to Show User (There should only be one)
+    freeform_method_id = JournalMethod.where(:name => "Freeform").first.id
+    @next_Freeform_prompt = JournalPrompt.where(:journal_method_id => freeform_method_id).first
     
-    @prompts = JournalPrompt.where(:id => @prompt_ids)
+    #@prompts = JournalPrompt.where(:id => @prompt_ids)
+    
+    
+    #Get quote of the day
+    require("open-uri")
+    quote_url =  open("http://quotes.rest/qod.json?category=inspire&key=xzOAu0zZR6PxT16S6fe1JQeF").read
+  
+    parsed_quote_result = JSON.parse(quote_url)
+    
+    quote_contents = parsed_quote_result.fetch("contents")
+    
+    quote_contents_quotes = quote_contents.fetch("quotes")
+    
+    quote_contents_quotes_first = quote_contents_quotes.at(0)
+    
+    @quote_text = quote_contents_quotes_first.fetch("quote")
+    @quote_author = quote_contents_quotes_first.fetch("author")
+    
+    
     render("user_entry_templates/list.html.erb")
   end
+  
+
+
 
   def details
     @user_entry = UserEntry.where({ :id => params.fetch("id_to_display") }).first

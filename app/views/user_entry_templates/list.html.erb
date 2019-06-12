@@ -9,14 +9,27 @@
   <div class="col-md-3"></div>
 </div>
 <hr>
+
+
+<div class= "row">
+  <div class="col-md-12"> 
+      <blockquote class="blockquote text-center">
+          <p class="mb-0"><%= @quote_text %></p>
+          <footer class="blockquote-footer"><%= @quote_author %></footer>
+          </blockquote>
+  </div>
+</div>
+
+<hr>
 <div class = "row">
 
   <div class="col-md-12"> 
-     Welcome to your digital journal! Choose one of the four prompts you want to write today.
+     <h4><center>Welcome to your digital journal! Choose one of the four prompts you want to write today.</center></h3>
+     
   </div>
-
 </div>
-<hr>
+
+
 <div class="card-deck">
 
     
@@ -60,6 +73,13 @@
     </div>
     
     
+</div>
+
+<div class="row">
+  <div class="col-md-12"> 
+     <h4><a href="/new_user_entry_form/<%=@next_Freeform_prompt.id %>"><center>Or Free Write</center></a></h3>
+     
+  </div>
 </div>
 <hr>
 
